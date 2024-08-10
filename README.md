@@ -17,12 +17,10 @@ Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not teste
 NOTE | 4
 Currently, only Turkish is supported. Other languages will be added in the future.
 
-Support | Telegram Channel
-Coming Soon
+Support | [Telegram Channel](https://t.me/rrechzexegithub)
 
-Donate | Buy Me A Coffee 
-buymeacoffee.com/section
+Donate | [Buy Me A Coffee](buymeacoffee.com/section)
 
 *Present by WallsHunter Media
-Wallpapers | https://t.me/WallsHunterHQ
-Technology | https://t.me/customtechnology
+Wallpapers | [WallsHunter - Phone Wallpapers](https://t.me/WallsHunterHQ)
+Technology | [Custom Technology](https://t.me/customtechnology)
