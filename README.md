@@ -2,8 +2,7 @@ BasicDownload/NightLoad with Aria2
 
 An application that takes Aria2 from the Terminal and makes it ready, simple and plain and saves you from using the terminal!!
 
-Supported OS;
-  ·Windows 10/11
+Supported OS: Windows 10 32-bit & Windows 10 64-bit & Windows 11 64-bit
 
 NOTE | 1
 NightLoad with Aria2 is based on the aria2 Open Source Project. The goal is built on aria2 resources for you to use aria2 as a portable application without using terminals.
