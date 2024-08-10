@@ -14,6 +14,9 @@ NightLoad with Aria2 is still in BETA. In some cases, this can be caused by erro
 NOTE | 3
 Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not tested for Windows 7/8/8.1 operating systems. However, it should work when Python or Python3 is installed. If it works, please let me know in the Telegram Support Channel!
 
+NOTE | 4
+Currently, only Turkish is supported. Other languages will be added in the future.
+
 Support | Telegram Channel
 Coming Soon
 
