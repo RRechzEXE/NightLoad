@@ -17,6 +17,9 @@ Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not teste
 NOTE | 4
 Currently, only Turkish is supported. Other languages will be added in the future.
 
+NOTE | 5
+The app is still in BETA, so it is not recommended to download files such as ISO or ZIP!!
+
 Support | [Telegram Channel](https://t.me/rrechzexegithub)
 Donate | [Buy Me A Coffee](buymeacoffee.com/section)
 Wallpapers | [WallsHunter - Phone Wallpapers](https://t.me/WallsHunterHQ)
