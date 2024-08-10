@@ -9,7 +9,7 @@ NOTE | 1
 NightLoad with Aria2 is based on the aria2 Open Source Project. The goal is built on aria2 resources for you to use aria2 as a portable application without using terminals.
 
 NOTE | 2
-BasicDownload/NightLoad with Aria2 is still in BETA. In some cases, this can be caused by errors or incomplete/unfinished file download issues. These problems will be corrected in the future.
+NightLoad with Aria2 is still in BETA. In some cases, this can be caused by errors or incomplete/unfinished file download issues. These problems will be corrected in the future.
 
 NOTE | 3
 Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not tested for Windows 7/8/8.1 operating systems. However, it should work when Python or Python3 is installed. If it works, please let me know in the Telegram Support Channel!
