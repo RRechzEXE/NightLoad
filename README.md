@@ -18,9 +18,6 @@ NOTE | 4
 Currently, only Turkish is supported. Other languages will be added in the future.
 
 Support | [Telegram Channel](https://t.me/rrechzexegithub)
-
 Donate | [Buy Me A Coffee](buymeacoffee.com/section)
-
-*Present by WallsHunter Media
 Wallpapers | [WallsHunter - Phone Wallpapers](https://t.me/WallsHunterHQ)
 Technology | [Custom Technology](https://t.me/customtechnology)
