@@ -1,6 +1,18 @@
 Aria2 Open Source Project based Project NightLoad
 
 __________________________________________________________________
+Changelog | Version 3.2.0
+·The speedometer has been fixed.
+·The Speedtest module has been replaced by psutil. It now has a more stable display.
+·Added Thread (Parallel download) feature, which is an Aria2 feature.
+·Added status indicator for Thread.
+·Interface improvements have been made.
+
+Bugs | Version 3.2.0
+·There may be errors in the download process due to the server of the file to be downloaded. Try downloading again after a few minutes.
+·The internet speed during the download shows incorrectly in some cases.
+
+__________________________________________________________________
 Changelog | Version 3.1.0
 ·Incorrect, incomplete and incorrect display in the "Progress Indicator" in the interface has been fixed.
 ·Interface colors have been improved.
