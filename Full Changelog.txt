@@ -1,0 +1,42 @@
+Aria2 Open Source Project based Project NightLoad
+
+__________________________________________________________________
+Changelog | Version 3.1.0
+·Incorrect, incomplete and incorrect display in the "Progress Indicator" in the interface has been fixed.
+·Interface colors have been improved.
+·Minor changes and Fixes.
+
+Bugs | Version 3.1.0
+·The speedometer does not work.
+
+__________________________________________________________________
+Changelog | Version 3.0.0 (İnactive Edition)
+·Interface colors have been improved.
+·Minor changes and Fixes.
+
+Bugs | Version 3.0.0
+·The download speedometer does not work stably.
+·The interface also gets stutters and "Not Responding" error.
+
+__________________________________________________________________
+Changelog | Version 2.0.1
+·Interface colors have been improved.
+·Minor changes and Fixes.
+
+Bugs | Version 2.0.1
+·General application instability
+
+__________________________________________________________________
+Changelog | Version 2.0
+·The interface design has been renewed. A more modern design has been introduced.
+·Minor changes and Fixes.
+
+Bugs | Version 2.0
+·General application instability
+
+__________________________________________________________________
+Changelog | Version 1.0
+·Initial Build
+
+Bugs | Version 1.0
+·Errors that may occur in the First Build.
