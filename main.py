@@ -3,57 +3,89 @@ from tkinter import ttk
 from tkinter import messagebox
 import subprocess
 import threading
-import re
 import queue
-import speedtest
+import re
+import time
+
+log_file_path = "download_logs.txt"  # Log dosyasının kaydedileceği yer
+
+def write_to_log(message):
+    with open(log_file_path, "a") as log_file:
+        log_file.write(message + "\n")
 
 def download_with_aria2(url, options=[]):
     aria2_path = r"C:\BasicDownload\aria2-1.37.0-win-64bit-build1\aria2c.exe"
-    command = [aria2_path, url]
+    command = [aria2_path, "-s", "4", "-x", "4", url]  # Parça sayısını 4 olarak ayarlıyoruz
     command.extend(options)
     
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-    return process
+    try:
+        process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        return process
+    except Exception as e:
+        messagebox.showerror("Error", f"Failed to start download: {str(e)}")
+        write_to_log(f"Failed to start download: {str(e)}")
+        return None
 
 def monitor_download(process, output_queue):
-    for line in iter(process.stdout.readline, ''):
-        output_queue.put(line)
-    
-    process.stdout.close()
-    process.wait()
-    output_queue.put("done")
-
-def update_progress():
     try:
-        while True:
+        for line in iter(process.stdout.readline, ''):
+            output_queue.put(line)
+            write_to_log(f"stdout: {line.strip()}")
+
+        process.stdout.close()
+        process.wait()
+        output_queue.put("done")
+    except Exception as e:
+        output_queue.put(f"error: {str(e)}")
+        write_to_log(f"Error: {str(e)}")
+
+    # Check for errors in stderr
+    for err_line in iter(process.stderr.readline, ''):
+        output_queue.put(f"error: {err_line.strip()}")
+        write_to_log(f"stderr: {err_line.strip()}")
+
+    process.stderr.close()
+
+def update_progress(process):
+    try:
+        if process.poll() is not None:
+            update_status(process.returncode)
+            return
+
+        while not output_queue.empty():
             line = output_queue.get_nowait()
+
+            if line.startswith("error"):
+                status_label.config(text="An error occurred.", fg="red")
+                messagebox.showerror("Error", line)
+                write_to_log(line)
+                return
+
             if line == "done":
                 update_status(0)
                 return
-            percentage_match = re.search(r"(\d+(\.\d+)?)%", line)
-            speed_match = re.search(r"(\d+(\.\d+)?)KB/s", line)
             
+            percentage_match = re.search(r"(\d+(\.\d+)?)%", line)
+
             if percentage_match:
                 percentage = float(percentage_match.group(1))
-                percent_label.config(text=f"Progress: {percentage:.2f}%")
-                
-            if speed_match:
-                speed = float(speed_match.group(1)) / 1024  # KB/s to MB/s
-                speed_label.config(text=f"Speed: {speed:.2f} MB/s")
+                percent_label.config(text=f"Progress: {int(percentage)}%")  # Tek haneli olarak göster
 
     except queue.Empty:
-        root.after(100, update_progress)
-
-def get_internet_speed():
-    st = speedtest.Speedtest()
-    st.get_best_server()
-    download_speed = st.download() / 1_000_000  # bps to Mbps
-    return download_speed
+        pass
+    
+    root.after(10000, update_progress, process)  # 10 saniyede bir güncelle
 
 def update_speed():
-    download_speed = get_internet_speed()
-    speed_label.config(text=f"Speed: {download_speed:.2f} MB/s")
-    root.after(5000, update_speed)
+    # Hız göstergesini güncellemek için bir dummy değer kullanıyoruz
+    try:
+        speed = 0.0  # Hızı gerçek bir kaynaktan alıyorsanız bu kısmı değiştirin
+        speed_label.config(text=f"Speed: {speed:.2f} MB/s")
+    except Exception as e:
+        messagebox.showerror("Error", f"Could not update speed: {str(e)}")
+        write_to_log(f"Could not update speed: {str(e)}")
+    
+    root.after(8000, update_speed)  # 8 saniyede bir güncelle
 
 def update_status(returncode):
     progress_bar.stop()
@@ -62,70 +94,81 @@ def update_status(returncode):
 
     if returncode == 0:
         status_message = "Download completed successfully."
+        status_label.config(fg="green")
     else:
         status_message = "An error occurred during download."
+        status_label.config(fg="red")
 
     status_label.config(text=status_message)
-    if "error" in status_message.lower():
-        messagebox.showerror("Error", status_message)
-    else:
-        messagebox.showinfo("Success", status_message)
+    write_to_log(status_message)
+    messagebox.showinfo("Status", status_message)
 
 def download():
     url = url_entry.get()
+    if not url:
+        messagebox.showerror("Error", "Please enter a URL to download.")
+        return
+
     options = []
     
     progress_bar['mode'] = 'indeterminate'
     progress_bar.start()
 
     process = download_with_aria2(url, options)
+    if not process:
+        return  # Eğer indirme başlatılamazsa, fonksiyondan çık
     
     global output_queue
     output_queue = queue.Queue()
     
     thread = threading.Thread(target=monitor_download, args=(process, output_queue))
+    thread.daemon = True  # Threadi arka planda çalıştır
     thread.start()
 
     update_speed()
-    update_progress()
+    update_progress(process)
 
 # Ana pencere oluşturma
 root = tk.Tk()
 root.title("NightLoad with Aria2")
 
 # Üst başlık
-header_frame = tk.Frame(root, bg="#4A90E2", pady=10)
+header_frame = tk.Frame(root, bg="#2C3E50", pady=10)
 header_frame.pack(fill=tk.X)
 
-header_label = tk.Label(header_frame, text="NightLoad BETA v2.0", fg="white", bg="#4A90E2", font=("Arial", 16))
+header_label = tk.Label(header_frame, text="NightLoad BETA v3.1.0", fg="white", bg="#2C3E50", font=("Helvetica", 18, "bold"))
 header_label.pack(side=tk.LEFT, padx=10)
 
 # Ana içerik çerçevesi
 main_frame = tk.Frame(root, padx=20, pady=20)
 main_frame.pack()
 
-url_label = tk.Label(main_frame, text="URL:")
+url_label = tk.Label(main_frame, text="URL:", font=("Arial", 12))
 url_label.grid(row=0, column=0, sticky=tk.W)
 
-url_entry = tk.Entry(main_frame, width=50)
+url_entry = tk.Entry(main_frame, width=50, font=("Arial", 12))
 url_entry.grid(row=0, column=1, padx=10)
 
-download_button = tk.Button(main_frame, text="Download", command=download)
+download_button = tk.Button(main_frame, text="Download", command=download, bg="#3498DB", fg="white", font=("Arial", 12, "bold"), relief=tk.RAISED)
 download_button.grid(row=0, column=2, padx=10)
 
 progress_label_frame = tk.Frame(main_frame)
 progress_label_frame.grid(row=1, column=0, columnspan=3, pady=(20, 10))
 
-percent_label = tk.Label(progress_label_frame, text="Progress: 0.00%")
+percent_label = tk.Label(progress_label_frame, text="Progress: 0%", font=("Arial", 12))
 percent_label.pack(side=tk.LEFT)
 
-speed_label = tk.Label(progress_label_frame, text="Speed: 0.00 MB/s")
+speed_label = tk.Label(progress_label_frame, text="Speed: N/A", font=("Arial", 12))
 speed_label.pack(side=tk.RIGHT)
 
-progress_bar = ttk.Progressbar(main_frame, length=400, mode='indeterminate')
+progress_bar = ttk.Progressbar(main_frame, length=400, mode='indeterminate', style='TProgressbar')
 progress_bar.grid(row=2, column=0, columnspan=3, pady=(10, 20))
 
-status_label = tk.Label(root, text="")
+# Stil oluşturma
+style = ttk.Style()
+style.configure('TProgressbar', thickness=20, troughcolor='#BDC3C7', background='#3498DB')
+
+status_label = tk.Label(root, text="", font=("Arial", 12))
 status_label.pack(pady=10)
 
 root.mainloop()
