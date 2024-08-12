@@ -5,6 +5,7 @@ import subprocess
 import threading
 import queue
 import re
+import psutil
 import time
 
 log_file_path = "download_logs.txt"  # Log dosyasının kaydedileceği yer
@@ -15,8 +16,7 @@ def write_to_log(message):
 
 def download_with_aria2(url, options=[]):
     aria2_path = r"C:\BasicDownload\aria2-1.37.0-win-64bit-build1\aria2c.exe"
-    command = [aria2_path, "-s", "4", "-x", "4", url]  # Parça sayısını 4 olarak ayarlıyoruz
-    command.extend(options)
+    command = [aria2_path] + options + [url]  # Kullanıcıdan alınan iş parçacığı sayısını komuta ekle
     
     try:
         process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
@@ -77,10 +77,10 @@ def update_progress(process):
     root.after(10000, update_progress, process)  # 10 saniyede bir güncelle
 
 def update_speed():
-    # Hız göstergesini güncellemek için bir dummy değer kullanıyoruz
     try:
-        speed = 0.0  # Hızı gerçek bir kaynaktan alıyorsanız bu kısmı değiştirin
-        speed_label.config(text=f"Speed: {speed:.2f} MB/s")
+        net_io = psutil.net_io_counters()
+        download_speed = (net_io.bytes_recv / 1024 / 1024) / 8  # Bytes to MB, converted to MB/s
+        speed_label.config(text=f"Speed: {download_speed:.2f} MB/s")
     except Exception as e:
         messagebox.showerror("Error", f"Could not update speed: {str(e)}")
         write_to_log(f"Could not update speed: {str(e)}")
@@ -109,8 +109,17 @@ def download():
         messagebox.showerror("Error", "Please enter a URL to download.")
         return
 
-    options = []
-    
+    # Kullanıcıdan iş parçacığı sayısını al
+    thread_count = thread_entry.get()
+    if not thread_count.isdigit() or int(thread_count) < 1:
+        messagebox.showerror("Error", "Please enter a valid number for threads.")
+        return
+
+    options = ["-s", thread_count, "-x", thread_count]  # Dinamik olarak iş parçacığı sayısını ayarlıyoruz
+
+    # "Threads" bilgisini arayüzde göster
+    threads_label.config(text=f"Downloading with {thread_count} threads")
+
     progress_bar['mode'] = 'indeterminate'
     progress_bar.start()
 
@@ -136,7 +145,7 @@ root.title("NightLoad with Aria2")
 header_frame = tk.Frame(root, bg="#2C3E50", pady=10)
 header_frame.pack(fill=tk.X)
 
-header_label = tk.Label(header_frame, text="NightLoad BETA v3.1.0", fg="white", bg="#2C3E50", font=("Helvetica", 18, "bold"))
+header_label = tk.Label(header_frame, text="NightLoad BETA v3.2.0", fg="white", bg="#2C3E50", font=("Helvetica", 18, "bold"))
 header_label.pack(side=tk.LEFT, padx=10)
 
 # Ana içerik çerçevesi
@@ -152,8 +161,16 @@ url_entry.grid(row=0, column=1, padx=10)
 download_button = tk.Button(main_frame, text="Download", command=download, bg="#3498DB", fg="white", font=("Arial", 12, "bold"), relief=tk.RAISED)
 download_button.grid(row=0, column=2, padx=10)
 
+# İş parçacığı sayısı giriş alanı
+thread_label = tk.Label(main_frame, text="Threads:", font=("Arial", 12))
+thread_label.grid(row=1, column=0, sticky=tk.W)
+
+thread_entry = tk.Entry(main_frame, width=10, font=("Arial", 12))
+thread_entry.grid(row=1, column=1, padx=10)
+thread_entry.insert(0, "4")  # Varsayılan olarak 4 iş parçacığı
+
 progress_label_frame = tk.Frame(main_frame)
-progress_label_frame.grid(row=1, column=0, columnspan=3, pady=(20, 10))
+progress_label_frame.grid(row=2, column=0, columnspan=3, pady=(20, 10))
 
 percent_label = tk.Label(progress_label_frame, text="Progress: 0%", font=("Arial", 12))
 percent_label.pack(side=tk.LEFT)
@@ -161,8 +178,12 @@ percent_label.pack(side=tk.LEFT)
 speed_label = tk.Label(progress_label_frame, text="Speed: N/A", font=("Arial", 12))
 speed_label.pack(side=tk.RIGHT)
 
+# İş parçacığı sayısını gösteren label
+threads_label = tk.Label(main_frame, text="", font=("Arial", 12))
+threads_label.grid(row=3, column=0, columnspan=3, pady=(10, 20))
+
 progress_bar = ttk.Progressbar(main_frame, length=400, mode='indeterminate', style='TProgressbar')
-progress_bar.grid(row=2, column=0, columnspan=3, pady=(10, 20))
+progress_bar.grid(row=4, column=0, columnspan=3, pady=(10, 20))
 
 # Stil oluşturma
 style = ttk.Style()
