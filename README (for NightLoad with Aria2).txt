@@ -5,8 +5,10 @@ In order for this application to work, some applications must be installed.
 1- Python
 2- Py2exe
 
-Supported OS;
-  ·Windows 10/11
+OS;
+  ·Windows 8.1 (32/64-Bit)
+  ·Windows 10 (32/64-Bit)
+  ·Windows 11
 
 Installation steps:
 
@@ -24,14 +26,14 @@ NOTE | 1
 NightLoad with Aria2 is based on the aria2 Open Source Project. The goal is built on aria2 resources for you to use aria2 as a portable application without using terminals.
 
 NOTE | 2
-BasicDownload/NightLoad with Aria2 is still in BETA. In some cases, this can be caused by errors or incomplete/unfinished file download issues. These problems will be corrected in the future.
+The stable version of the app has been released. The errors that may occur in this version are most likely a problem caused by the servers of the file you are going to download. However, if you think there is a problem caused by the application, come to the telegram support channel with the logs in the download_logs.txt file in the BasicDownloadsrc directory and declare the problems.
 
 NOTE | 3
-Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not tested for Windows 7/8/8.1 operating systems. However, it should work when Python or Python3 is installed. If it works, please let me know in the Telegram Support Channel!
+Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not tested for Windows 7 or old version operating systems. However, it should work when Python or Python3 is installed. If it works, please let me know in the Telegram Support Channel!
 
 __________________________________________________________________
 Support | Telegram Channel
-Coming Soon
+t.me/rrechzexegithub
 
 Donate | Buy Me A Coffee 
 buymeacoffee.com/section
