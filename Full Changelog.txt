@@ -1,6 +1,21 @@
 Aria2 Open Source Project based Project NightLoad
 
 __________________________________________________________________
+Changelog | Version 4.0.0
+·First Stable Build 
+·Upgraded to Advanced Interface Version 2.0.
+·Fixed an incorrect or missing download speed indicator issue.
+·The Progress Bar will now start to fill up based on the percentage of progress.
+·Added help section
+·A direct access button has been added to WallsHunter Media's Wallpaper channel. (Help >> Wallpapers)
+·Added support section/button
+·The Thread/Parallel download feature has been improved. Now a more stable download should be done.
+
+Bugs | Version 4.0.0
+·There may be errors in the download process due to the server of the file to be downloaded. Try downloading again after a few minutes.
+·If there are any errors, let us know on our Telegram channel!
+
+__________________________________________________________________
 Changelog | Version 3.2.0
 ·The speedometer has been fixed.
 ·The Speedtest module has been replaced by psutil. It now has a more stable display.
