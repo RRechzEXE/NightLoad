@@ -5,7 +5,7 @@ import queue
 import re
 import psutil
 import time
-from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QProgressBar, QMessageBox, QComboBox, QMenu, QMenuBar, QAction, QHBoxLayout, QSizePolicy, QFrame)
+from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QProgressBar, QMessageBox, QComboBox, QMenu, QMenuBar, QAction, QHBoxLayout, QSizePolicy, QFrame, QInputDialog)
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont
 from PyQt5.QtGui import QDesktopServices
@@ -56,7 +56,7 @@ class DownloadManager(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Project NightLoad - Stable Edition')
+        self.setWindowTitle('Project NightLoad - Completed Edition')
         self.setGeometry(100, 100, 800, 400)
         self.setFixedSize(800, 400)
 
@@ -267,22 +267,64 @@ class DownloadManager(QWidget):
     def set_dark_theme(self):
         self.setStyleSheet("""
             QWidget {
-                background-color: #2C3E50;
-                color: #ECF0F1;
+                background-color: #2E2E2E;
+                color: #FFFFFF;
             }
             QLabel {
                 font-size: 14px;
             }
             QLineEdit {
-                background-color: #34495E;
-                color: #ECF0F1;
+                background-color: #3C3C3C;
+                color: #FFFFFF;
+                padding: 5px;
+                border-radius: 3px;
+                border: 1px solid #555555;
+            }
+            QPushButton {
+                background-color: #555555;
+                color: #FFFFFF;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #444444;
+            }
+            QProgressBar {
+                background-color: #555555;
+                color: #00FF00;
+                border-radius: 5px;
+                text-align: center;
+            }
+            QMenuBar {
+                background-color: #2E2E2E;
+                color: #FFFFFF;
+            }
+            QMenu {
+                background-color: #2E2E2E;
+                color: #FFFFFF;
+            }
+        """)
+
+    def set_light_theme(self):
+        self.setStyleSheet("""
+            QWidget {
+                background-color: #ECF0F1;
+                color: #2C3E50;
+            }
+            QLabel {
+                font-size: 14px;
+            }
+            QLineEdit {
+                background-color: #FFFFFF;
+                color: #2C3E50;
                 padding: 5px;
                 border-radius: 3px;
                 border: 1px solid #16A085;
             }
             QPushButton {
                 background-color: #3498DB;
-                color: #ECF0F1;
+                color: #FFFFFF;
                 padding: 10px;
                 border-radius: 5px;
                 border: none;
@@ -291,35 +333,42 @@ class DownloadManager(QWidget):
                 background-color: #2980B9;
             }
             QProgressBar {
-                background-color: #34495E;
+                background-color: #BDC3C7;
                 color: #2ECC71;
                 border-radius: 5px;
                 text-align: center;
             }
             QMenuBar {
-                background-color: #2C3E50;
-                color: #ECF0F1;
+                background-color: #ECF0F1;
+                color: #2C3E50;
             }
             QMenu {
-                background-color: #2C3E50;
-                color: #ECF0F1;
+                background-color: #ECF0F1;
+                color: #2C3E50;
             }
         """)
 
     def show_theme_selector(self):
-        pass
+        themes = ["Dark", "Light"]
+        theme, ok = QInputDialog.getItem(self, "Select Theme", "Choose a theme:", themes, 0, False)
+
+        if ok and theme:
+            if theme == "Dark":
+                self.set_dark_theme()
+            elif theme == "Light":
+                self.set_light_theme()
 
     def show_about_me(self):
-        QMessageBox.information(self, "About", "Project NightLoad\nVersion: 4.0.0\nBuild: PNL13082024-V4.0-Stable\n\nDeveloped by RRechzEXE & Ressci")
+        QMessageBox.about(self, "About Project NightLoad", "Project NightLoad\nVersion: 4..1.0\nBuild: PNL14082024-V4.1-Stable\nStatus: Completed Edition\n\nDeveloped by RRechzEXE & Ressci")
 
     def open_support_link(self):
-        QDesktopServices.openUrl(QUrl('https://t.me/rrechzexegithub'))
+        QDesktopServices.openUrl(QUrl("https://example.com/support"))
 
     def open_wallpapers_link(self):
-        QDesktopServices.openUrl(QUrl('https://t.me/WallsHunterHQ'))
+        QDesktopServices.openUrl(QUrl("https://example.com/wallpapers"))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = DownloadManager()
-    ex.show()
+    window = DownloadManager()
+    window.show()
     sys.exit(app.exec_())
