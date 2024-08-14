@@ -1,4 +1,15 @@
-Aria2 Open Source Project based Project NightLoad
+Project NightLoad: Open Source Project
+
+__________________________________________________________________
+Changelog | Version 4.1.0 [final Version]
+·Completed Version;
+  ·Dark and Light themes added
+  ·Improvements have been made to the interface.
+  ·Fixed some aria2 bugs.
+  ·Take a look at the options in the help button!
+
+Bugs | Version 4.0.0
+·Errors in the completed version may be caused by download servers. If you think there are errors caused by the interface/application, please submit a declaration to the t.me/rrechzexegithub channel with the download_logs.txt file in the BasicDownloadsrc directory!
 
 __________________________________________________________________
 Changelog | Version 4.0.0
