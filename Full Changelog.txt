@@ -1,6 +1,23 @@
 Project NightLoad: Open Source Project
 
 __________________________________________________________________
+Changelog | Pro Version 5.0
+·Improves application stability
+·Added Quick Assist option (Pro Version only)
+·Aria2's download manager with AI has been integrated
+·When the download is finished, the Download_Logs file will be created automatically. Thus, you will be able to manage your downloads.
+·Improvements have been made to the interface.
+·When new updates are available, download the new update with the link sent to your e-mail
+·If there are any problems, use "Fast Support". Thus, get help service first. (in the lower right corner)
+
+Bugs | Pro Version 5.0
+·We haven't detected any bugs yet. Errors in your downloads may be due to the density of the servers you download. If you think it's caused by the app, please let us know with Fast Support!
+
+NOTE | Pro Version 5.0
+Click on the link below for the pro version.
+https:\buymeacoffee.com/section
+
+__________________________________________________________________
 Changelog | Version 4.1.0 [final Version]
 ·Completed Version;
   ·Dark and Light themes added
