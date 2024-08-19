@@ -1,6 +1,17 @@
 Project NightLoad: Open Source Project
 
 __________________________________________________________________
+Changelog | Free Version 4.1.1 [Hotfix]
+·Fixed interface issues
+·Improved application stability
+·Added support for Linux & MacOS
+·The project is set to be fully open source
+·Added button to upgrade to NightLoad Pro (see "Help >> Switch to Pro")
+
+Bugs | Free Version 4.1.1 [Hotfix]
+·Errors in the Hotfix version may be caused by download servers. If you think there are errors caused by the interface/application, please submit a declaration to the t.me/rrechzexegithub channel with the download_logs.txt file in the BasicDownload\src\ directory!
+
+__________________________________________________________________
 Changelog | Pro Version 5.0
 ·Improves application stability
 ·Added Quick Assist option (Pro Version only)
