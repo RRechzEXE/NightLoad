@@ -5,7 +5,7 @@ Built on the aria2 open source project, Project NightLoad takes you away from ar
 for Project NightLoad Pro
 https://github.com/RRechzEXE/NightLoad-Pro
 
-OS: Windwos 8.1 & Windows 10 & Windows 11
+OS: Windwos 8.1 & Windows 10 & Windows 11 & Linux & MacOS
 
 Project NightLoad Features;
 1- Ultra-Fast Downloading: Download without buffering using Aria2's download logic!	
