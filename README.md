@@ -23,9 +23,6 @@ Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not teste
 
 NOTE | 3
 As long as there is no error in the application, the application will only be updated in cases where aria2 is updated.
-
-NOTE | 4
-**Linux & MacOS support is only available in the Pro Version!**
 __________________________________________________________________
 Support | [Telegram Channel](https://t.me/rrechzexegithub)
 Donate | [Buy Me A Coffee](buymeacoffee.com/section)
