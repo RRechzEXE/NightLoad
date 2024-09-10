@@ -1,6 +1,16 @@
 Project NightLoad: Open Source Project
 
 __________________________________________________________________
+Changelog | Pro Version 5.1
+·Interface issues have been fixed
+·Yt-dlp added
+·Aria2 re-added (for Download Problems)
+
+Bugs | Pro Version 5.1
+·Sometimes there may be problems in downloading videos with yt-dlp
+·Yt-dlp may continue to be active when the window opened for downloading with Yt-dlp is closed again.
+
+__________________________________________________________________
 Changelog | Version 4.1.2 (Other Name Hotfix2)
 ·Some bugs that occurred in Advanced Interface 2.0 have been fixed
 ·Rebased on version 4.1.0
