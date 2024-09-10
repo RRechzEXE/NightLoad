@@ -5,6 +5,7 @@ import queue
 import re
 import psutil
 import time
+import requests
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QProgressBar, QMessageBox, QComboBox, QMenu, QMenuBar, QAction, QHBoxLayout, QSizePolicy, QFrame, QInputDialog)
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont
@@ -13,6 +14,7 @@ from PyQt5.QtCore import QUrl
 import sys
 
 log_file_path = "download_logs.txt"
+github_repo_url = "https://github.com/RRechzEXE/NightLoad/releases"  # GitHub repo URL
 
 def write_to_log(message):
     with open(log_file_path, "a") as log_file:
@@ -48,6 +50,28 @@ def monitor_download(process, output_queue):
 
     process.stderr.close()
 
+def get_latest_release_info():
+    try:
+        response = requests.get(github_repo_url)
+        response.raise_for_status()
+        release_data = response.json()
+        tag_name = release_data['Version-413']
+        download_url = release_data['assets'][0]['https://github.com/RRechzEXE/NightLoad/releases/tag/Version-413']
+        return tag_name, download_url
+    except Exception as e:
+        write_to_log(f"Failed to get latest release info: {str(e)}")
+        return None, None
+
+def download_file(url, local_filename):
+    try:
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+        with open(local_filename, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+    except Exception as e:
+        write_to_log(f"Failed to download file: {str(e)}")
+
 class DownloadManager(QWidget):
     def __init__(self):
         super().__init__()
@@ -56,7 +80,7 @@ class DownloadManager(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Project NightLoad - Completed Edition')
+        self.setWindowTitle('Project NightLoad: Open Soruce Project with Aria2')
         self.setGeometry(100, 100, 800, 400)
         self.setFixedSize(800, 400)
 
@@ -70,6 +94,10 @@ class DownloadManager(QWidget):
         self.theme_action = QAction('Theme', self)
         self.theme_action.triggered.connect(self.show_theme_selector)
         self.settings_menu.addAction(self.theme_action)
+
+        self.update_action = QAction('Update', self)
+        self.update_action.triggered.connect(self.check_for_updates)
+        self.settings_menu.addAction(self.update_action)
 
         self.about_action = QAction('About', self)
         self.about_action.triggered.connect(self.show_about_me)
@@ -132,6 +160,11 @@ class DownloadManager(QWidget):
         self.status_label.setFont(QFont('Arial', 12))
         self.status_label.setAlignment(Qt.AlignRight)
         layout.addWidget(self.status_label)
+
+        self.text_label = QLabel('Know Bugs | v4.1.2\nThe Update button may not work because it is in BETA.', self)
+        self.text_label.setFont(QFont('Arial', 8))
+        self.text_label.setAlignment(Qt.AlignRight | Qt.AlignBottom)
+        layout.addWidget(self.text_label)
 
         spacer = QWidget()
         spacer.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -201,7 +234,7 @@ class DownloadManager(QWidget):
     def update_progress(self):
         if self.process is None:
             return
-
+        
         while not self.output_queue.empty():
             line = self.output_queue.get_nowait()
 
@@ -256,53 +289,38 @@ class DownloadManager(QWidget):
 
             if elapsed_time >= 1:
                 bytes_recv = current_bytes_sent - self.last_bytes_sent
-                speed_mbps = (bytes_recv / elapsed_time) / (1024 * 1024)
-                self.network_speed_label.setText(f'Network Speed | {speed_mbps:.2f} MB/s')
-
+                download_speed = bytes_recv / elapsed_time / (1024 * 1024)
+                self.network_speed_label.setText(f"Network Speed | {download_speed:.2f} MB/s")
                 self.last_bytes_sent = current_bytes_sent
                 self.last_check_time = current_time
 
             time.sleep(1)
 
+    def show_theme_selector(self):
+        themes = ['Dark', 'Light']
+        theme, ok = QInputDialog.getItem(self, "Select Theme", "Choose your theme:", themes, 0, False)
+
+        if ok and theme:
+            if theme == "Dark":
+                self.set_dark_theme()
+            else:
+                self.set_light_theme()
+
     def set_dark_theme(self):
         self.setStyleSheet("""
             QWidget {
-                background-color: #2E2E2E;
-                color: #FFFFFF;
-            }
-            QLabel {
-                font-size: 14px;
-            }
-            QLineEdit {
-                background-color: #3C3C3C;
-                color: #FFFFFF;
-                padding: 5px;
-                border-radius: 3px;
-                border: 1px solid #555555;
+                background-color: #2C3E50;
+                color: #ECF0F1;
             }
             QPushButton {
-                background-color: #555555;
-                color: #FFFFFF;
+                background-color: #3498DB;
+                color: #ECF0F1;
                 padding: 10px;
                 border-radius: 5px;
                 border: none;
             }
             QPushButton:hover {
-                background-color: #444444;
-            }
-            QProgressBar {
-                background-color: #555555;
-                color: #00FF00;
-                border-radius: 5px;
-                text-align: center;
-            }
-            QMenuBar {
-                background-color: #2E2E2E;
-                color: #FFFFFF;
-            }
-            QMenu {
-                background-color: #2E2E2E;
-                color: #FFFFFF;
+                background-color: #2980B9;
             }
         """)
 
@@ -312,19 +330,9 @@ class DownloadManager(QWidget):
                 background-color: #ECF0F1;
                 color: #2C3E50;
             }
-            QLabel {
-                font-size: 14px;
-            }
-            QLineEdit {
-                background-color: #FFFFFF;
-                color: #2C3E50;
-                padding: 5px;
-                border-radius: 3px;
-                border: 1px solid #16A085;
-            }
             QPushButton {
                 background-color: #3498DB;
-                color: #FFFFFF;
+                color: #2C3E50;
                 padding: 10px;
                 border-radius: 5px;
                 border: none;
@@ -332,43 +340,72 @@ class DownloadManager(QWidget):
             QPushButton:hover {
                 background-color: #2980B9;
             }
-            QProgressBar {
-                background-color: #BDC3C7;
-                color: #2ECC71;
-                border-radius: 5px;
-                text-align: center;
-            }
-            QMenuBar {
-                background-color: #ECF0F1;
-                color: #2C3E50;
-            }
-            QMenu {
-                background-color: #ECF0F1;
-                color: #2C3E50;
-            }
         """)
 
-    def show_theme_selector(self):
-        themes = ["Dark", "Light"]
-        theme, ok = QInputDialog.getItem(self, "Select Theme", "Choose a theme:", themes, 0, False)
-
-        if ok and theme:
-            if theme == "Dark":
-                self.set_dark_theme()
-            elif theme == "Light":
-                self.set_light_theme()
-
     def show_about_me(self):
-        QMessageBox.about(self, "About Project NightLoad", "Project NightLoad\nVersion: 4..1.0\nBuild: PNL14082024-V4.1-Stable\nStatus: Completed Edition\n\nDeveloped by RRechzEXE & Ressci")
+        QMessageBox.about(self, "About Me", "Project NightLoad: Open Soruce Project with Aria2\n\nApp: Project NightLoad\nVersion: v4.1.2 [Hotfix]\nBuild: PNL10092024-V4.1\nDeveloped by RRechzEXE && Rescci\n\nby WallsHunter Media")
 
     def open_support_link(self):
-        QDesktopServices.openUrl(QUrl("https://example.com/support"))
+        url = "https://discord.gg/geDSnXCq"
+        QDesktopServices.openUrl(QUrl(url))
 
     def open_wallpapers_link(self):
-        QDesktopServices.openUrl(QUrl("https://example.com/wallpapers"))
+        url = "https://t.me/WallsHunterHQ"
+        QDesktopServices.openUrl(QUrl(url))
+
+    def check_for_updates(self):
+        tag_name, download_url = get_latest_release_info()
+        if not tag_name or not download_url:
+            QMessageBox.critical(self, "Error", "Failed to check for updates.")
+            return
+
+        version_tag = f"Version-{tag_name.replace('.', '')}"
+        local_filename = f"{version_tag}.zip"  # Assuming the release is a ZIP file
+
+        reply = QMessageBox.question(self, "Update Available",
+                                     f"New version {tag_name} is available. Do you want to download it?",
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        
+        if reply == QMessageBox.Yes:
+            self.download_button.setEnabled(False)
+            self.download_button.setText("Downloading update...")
+            self.download_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #7F8C8D;
+                    color: #BDC3C7;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                }
+            """)
+
+            download_thread = threading.Thread(target=download_file, args=(download_url, local_filename))
+            download_thread.start()
+            download_thread.join()
+
+            QMessageBox.information(self, "Update", "Update downloaded successfully.")
+            self.download_button.setEnabled(True)
+            self.download_button.setText("Download")
+            self.download_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #3498DB;
+                    color: #ECF0F1;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                }
+                QPushButton:hover {
+                    background-color: #2980B9;
+                }
+            """)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        # Update the position of the text label to be in the bottom-right corner
+        self.text_label.move(self.width() - self.text_label.width() - 10, self.height() - self.text_label.height() - 10)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = DownloadManager()
-    window.show()
+    download_manager = DownloadManager()
+    download_manager.show()
     sys.exit(app.exec_())
