@@ -2,9 +2,6 @@
 
 Built on the aria2 open source project, Project NightLoad takes you away from aria2's complex terminal usage and brings you to a simple, fast and convenient interface. In this way, you only have to press the Download button after adding the URL:)
 
-for Project NightLoad Pro
-https://github.com/RRechzEXE/NightLoad-Pro
-
 OS: Windwos 8.1 & Windows 10 & Windows 11 & Linux & MacOS
 
 Project NightLoad Features;
