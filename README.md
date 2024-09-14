@@ -24,7 +24,7 @@ As long as there is no error in the application, the application will only be up
 NOTE | 4
 Tests have not been conducted for macOS and Linux. However, it should work when Python or Python3 is installed.
 __________________________________________________________________
-Support | [Telegram Channel](https://t.me/rrechzexegithub)
+Support | [Discord Server](https://discord.com/invite/geDSnXCq)
 Donate | [Buy Me A Coffee](buymeacoffee.com/section)
 Wallpapers | [WallsHunter - Phone Wallpapers](https://t.me/WallsHunterHQ)
 Technology | [Custom Technology](https://t.me/customtechnology)
