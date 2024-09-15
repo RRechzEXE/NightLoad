@@ -1,29 +1,40 @@
-An application that takes Aria2 from the Terminal and makes it ready, simple and plain and saves you from using the terminal!!
+## Project NightLoad: Open Source Project with Aria2
+NightLoad, Aria2 indirme yöneticisini kullanıcı dostu bir PyQt5 arayüzü ile sunan açık kaynaklı bir projedir. Terminal kullanmadan kolayca dosya indirmenizi, indirme hızını ve ilerlemeyi takip etmenizi sağlar. (English README coming soon!)
 
-In order for this application to work, some applications must be installed.
+## Özellikler
 
-1- Python
-2- Python3 (3.12)
+* Kullanıcı Dostu Arayüz: PyQt5 ile geliştirilmiş sezgisel ve modern bir arayüz.
+* Aria2 Entegrasyonu: Aria2'nin gücünden yararlanarak hızlı ve güvenilir indirmeler.
+* İndirme İzleme: İndirme hızı, ilerleme durumu ve tahmini bitiş süresi gibi bilgileri gerçek zamanlı olarak takip etme.
+* Tema Desteği: Açık ve koyu tema seçenekleri.
+* Güncelleme Kontrolü: Uygulamanın en son sürümünü kontrol etme ve güncelleme (beta).
+* Hata Kayıtları: İndirme hatalarının ayrıntılı bir kaydını tutma.
 
-OS;
-  ·Linux
-  ·MacOS
-  ·Windows
+## Gereksinimler
 
-__________________________________________________________________
-NOTE | 1
-The stable version of the app has been released. The errors that may occur in this version are most likely a problem caused by the servers of the file you are going to download. However, if you think there is a problem caused by the application, come to the telegram support channel with the logs in the download_logs.txt file in the BasicDownload\src directory and declare the problems.
+* Python 3.12
 
-NOTE | 2
-Initially, the app was designed for Windwos 10 (32/64) and Windows 11. Not tested for Windows 7 or old version operating systems. However, it should work when Python or Python3 is installed. If it works, please let me know in the Telegram Support Channel!
-__________________________________________________________________
-Support | Telegram Channel
-t.me/rrechzexegithub
+## Kurulum
 
-Donate | Buy Me A Coffee 
-buymeacoffee.com/section
+1. ProjectNightLoad_*********.zip'i indirin.
+2. ".zip" dosyasını "C:\" dizininne çıkarın.
+3. Çıkarılan "BasicDownload\src\" klasöürüne girin
+4. ProjectNightLoad_******.py dosyasına çift tıklayın ve işte bu kadar.
 
-__________________________________________________________________
-*Present by WallsHunter Media
-Wallpapers | https://t.me/WallsHunterHQ
-Technology | https://t.me/customtechnology
+** Lütfen karşılaştığınız hataları Discord Server'ımızda bizlere bildirin!
+
+1. Uygulamayı başlatın.
+2. İndirmek istediğiniz dosyanın URL'sini "Download URL" alanına yapıştırın.
+3. İsteğe bağlı olarak "Threads" alanına indirme iş parçacığı sayısını girin (varsayılan: 4).
+4. "Download" butonuna tıklayın.
+5. İndirme ilerlemesini, hızını ve durumunu takip edin.
+
+## Katkıda Bulunma
+
+Katkılarınızı memnuniyetle karşılıyoruz! Lütfen bir pull request göndermeden önce issue açarak değişikliklerinizi tartışın.
+
+## İletişim
+
+Discord Server | https://discord.com/invite/geDSnXCq
+Telegram "Wallpapers" | https://t.me/WallsHunterHQ
+Telegram "Tech News" | https://t.me/customtechnology
