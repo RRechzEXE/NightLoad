@@ -1,0 +1,174 @@
+stdout: 
+stdout: 09/10 18:08:59 [[1;32mNOTICE[0m] Downloading 1 item(s)
+stdout: 
+stdout: 09/10 18:08:59 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 
+stdout: [#cf391e 0B/0B CN:1 DL:0B]
+stdout: 09/10 18:09:00 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 18:09:00 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4GEKThROHMyWadYb-DMLQfcC7c-gC9kbDcDe5LQ8sV6XGDDp1QkyekFkbFNYuhczdUvsbpZQgXqMRkrZTZUA6_Zyag%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 
+stdout: [#cf391e 0B/0B CN:1 DL:0B]
+stdout: 09/10 18:09:02 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#cf391e 0B/0B CN:1 DL:0B]
+stdout: 09/10 18:09:03 [[1;32mNOTICE[0m] Allocating disk space. Use --file-allocation=none to disable it. See --file-allocation option in man page for more details.
+stdout: 
+stdout: 
+stdout: [#cf391e 0B/2.0GiB(0%) CN:1 DL:0B] [FileAlloc:#cf391e 282MiB/2.0GiB(13%)]
+stdout: 
+stdout: [#cf391e 0B/2.0GiB(0%) CN:1 DL:0B] [FileAlloc:#cf391e 820MiB/2.0GiB(40%)]
+stdout: 
+stdout: [#cf391e 0B/2.0GiB(0%) CN:1 DL:0B] [FileAlloc:#cf391e 1.2GiB/2.0GiB(62%)]
+stdout: 
+stdout: [#cf391e 0B/2.0GiB(0%) CN:1 DL:0B] [FileAlloc:#cf391e 1.7GiB/2.0GiB(88%)]
+stdout: 09/10 18:09:07 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 
+stdout: [#cf391e 288KiB/2.0GiB(0%) CN:5 DL:550KiB ETA:1h3m30s]
+stdout: 09/10 18:09:07 [[1;32mNOTICE[0m] CUID#12 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 18:09:07 [[1;32mNOTICE[0m] CUID#11 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 18:09:07 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 18:09:07 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#12 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#11 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4GESZsxeVg1024aDl3mbyhx_gcRPI6CDMkwmYUlhpSL-7_S6RYdLHxmclQB7gSovOiFg9pUJgZf_REHIbwXJI_orhQ%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4GESeVe98kICCLwkK0tbWqhxrlRs5JfGk9yitQzLYlkOqtDYtNIT-grKMqtRRgB29BBb09KB29yPPTzqKH-0ob7NGg%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#12 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4GESx1mbr11y2a1wPRHDTLwWrraRfBisWyxjfiOPjmp0YbiRWSRUPu8Pvsl0PlwyKhI2Epm2SWHrQNBXFA5_Jn9lbg%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 18:09:08 [[1;32mNOTICE[0m] CUID#11 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4GES3ePc30grcxi4EOleQ5a6cLsd8biL5QPn2Q7XgMVNF4ShJp44YuBBCHKxmbTPi8oY7c6y28C5OMGGpMq4v2dC1g%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 
+stdout: [#cf391e 1.0MiB/2.0GiB(0%) CN:5 DL:684KiB ETA:51m3s]
+stdout: 09/10 18:09:09 [[1;31mERROR[0m] CUID#9 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 1196425216-1672478719/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#cf391e 1.7MiB/2.0GiB(0%) CN:4 DL:707KiB ETA:49m20s]
+stdout: 09/10 18:09:10 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#cf391e 2.5MiB/2.0GiB(0%) CN:4 DL:723KiB ETA:48m13s]
+stdout: 09/10 18:09:11 [[1;31mERROR[0m] CUID#10 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 1028653056-1672478719/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#cf391e 3.3MiB/2.0GiB(0%) CN:3 DL:748KiB ETA:46m39s]
+stdout: 09/10 18:09:12 [[1;32mNOTICE[0m] CUID#12 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#cf391e 4.1MiB/2.0GiB(0%) CN:3 DL:767KiB ETA:45m27s]
+stdout: 09/10 18:09:12 [[1;31mERROR[0m] CUID#12 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 837812224-1672478719/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#cf391e 5.0MiB/2.0GiB(0%) CN:2 DL:794KiB ETA:43m53s]
+stdout: 09/10 18:09:14 [[1;32mNOTICE[0m] CUID#11 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#cf391e 6.0MiB/2.0GiB(0%) CN:2 DL:814KiB ETA:42m46s]
+stdout: 09/10 18:09:14 [[1;31mERROR[0m] CUID#11 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 1076887552-2147657559/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#cf391e 7.0MiB/2.0GiB(0%) CN:1 DL:843KiB ETA:41m16s]
+stdout: 
+stdout: [#cf391e 8.2MiB/2.0GiB(0%) CN:1 DL:884KiB ETA:39m22s]
+stdout: 
+stdout: [#cf391e 9.8MiB/2.0GiB(0%) CN:1 DL:0.9MiB ETA:35m12s]
+stdout: 
+stdout: [#cf391e 11MiB/2.0GiB(0%) CN:1 DL:1.1MiB ETA:30m42s]
+stdout: 
+Failed to get latest release info: 404 Client Error: Not Found for url: https://api.github.com/repos/YOUR_USERNAME/YOUR_REPOSITORY/releases/latest
+Failed to get latest release info: Expecting value: line 8 column 1 (char 7)
+Failed to get latest release info: Expecting value: line 8 column 1 (char 7)
+Failed to get latest release info: Expecting value: line 8 column 1 (char 7)
+stdout: 
+stdout: 09/10 19:34:57 [[1;32mNOTICE[0m] Downloading 1 item(s)
+stdout: 
+stdout: 09/10 19:34:58 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 
+stdout: [#fa0147 0B/0B CN:1 DL:0B]
+stdout: 09/10 19:34:59 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 19:34:59 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4HUxcz5SfrPFe9eDY2qcxavlkWlCOR7imRiuHHs_ZfNYd66mZvcT-d81C2hWTD3ioYN8VLvfwd2W55dBibmumHT1eQ%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 
+stdout: [#fa0147 0B/0B CN:1 DL:0B]
+stdout: 09/10 19:35:00 [[1;32mNOTICE[0m] CUID#7 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#fa0147 0B/0B CN:1 DL:0B]
+stdout: 
+stdout: [#fa0147 0B/0B CN:1 DL:0B]
+stdout: 09/10 19:35:02 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 19:35:02 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 19:35:02 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 19:35:03 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 
+stdout: [#fa0147 800KiB/2.0GiB(0%) CN:4 DL:0.9MiB ETA:37m]
+stdout: 09/10 19:35:03 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/
+stdout: 
+stdout: 09/10 19:35:03 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 19:35:04 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4HU2xGbG83OPGzJqwY_u3-545arLthFg8phHDieuC2pqvUGxJw97unnaOnzFUVOS6Izgaet75XkdyrB-IgwkEYundg%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 19:35:04 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4HU2FP62-vyu_oZGyS38vcAhzJvM2KCGx-MQzo30fBK7-R1kALpUfbgDciMx4RIyYZTmnxRhrsZ9WLdwSHocLQOHmQ%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 19:35:04 [[1;32mNOTICE[0m] CUID#10 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#fa0147 2.2MiB/2.0GiB(0%) CN:4 DL:1.2MiB ETA:27m50s]
+stdout: 09/10 19:35:04 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip/download
+stdout: 
+stdout: 09/10 19:35:04 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://downloads.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?ts=gAAAAABm4HU2-d6bhHiuq0E5fTZov2cY17oLrzYNahewEu_MzJjpYq7qhvOqQqVmHtdvLMONgfgrfGcrBFd1n7wnk0WrqSPEIw%3D%3D&use_mirror=yer&r=
+stdout: 
+stdout: 09/10 19:35:04 [[1;31mERROR[0m] CUID#10 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 572522496-1141899263/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#fa0147 3.3MiB/2.0GiB(0%) CN:3 DL:1.1MiB ETA:29m35s]
+stdout: 09/10 19:35:06 [[1;32mNOTICE[0m] CUID#8 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#fa0147 4.6MiB/2.0GiB(0%) CN:3 DL:1.1MiB ETA:28m41s]
+stdout: 09/10 19:35:06 [[1;31mERROR[0m] CUID#8 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 825229312-1645215743/2147657560, Response: 0-2147657559/2147657560
+stdout: 
+stdout: 
+stdout: [#fa0147 6.0MiB/2.0GiB(0%) CN:2 DL:1.2MiB ETA:27m27s]
+stdout: 09/10 19:35:08 [[1;32mNOTICE[0m] CUID#9 - Redirecting to https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: 
+stdout: 
+stdout: [#fa0147 7.5MiB/2.0GiB(0%) CN:2 DL:1.2MiB ETA:26m40s]
+stdout: 
+stdout: [#fa0147 8.9MiB/2.0GiB(0%) CN:2 DL:1.3MiB ETA:26m3s]
+stdout: 09/10 19:35:09 [[1;31mERROR[0m] CUID#9 - Download aborted. URI=https://sourceforge.net/projects/pixelos-releases/files/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip
+stdout: Exception: [AbstractCommand.cc:351] errorCode=8 URI=https://yer.dl.sourceforge.net/project/pixelos-releases/fourteen/miatoll/PixelOS_miatoll-14.0-20240820-1015.zip?viasf=1
+stdout: -> [HttpResponse.cc:81] errorCode=8 Invalid range header. Request: 1077936128-2147657559/2147657560, Response: 0-2147657559/2147657560
