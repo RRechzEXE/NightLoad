@@ -1,7 +1,7 @@
 Project NightLoad: Open Source Project
 
 __________________________________________________________________
-Changelog | Version 4.1.2 (Build Name Hotfix2)
+Changelog | Version 4.1.2 (Hotfix2)
 ·Some bugs that occurred in Advanced Interface 2.0 have been fixed
 ·Rebased on version 4.1.0
 ·Fixed "Aria2c not found" error
