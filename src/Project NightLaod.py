@@ -14,7 +14,7 @@ from PyQt5.QtCore import QUrl
 import sys
 
 log_file_path = "download_logs.txt"
-github_repo_url = "https://github.com/RRechzEXE/NightLoad/releases"  # GitHub repo URL
+github_repo_url = "https://github.com/RRechzEXE/NightLoad/"  # GitHub repo URL
 
 def write_to_log(message):
     with open(log_file_path, "a") as log_file:
@@ -55,8 +55,8 @@ def get_latest_release_info():
         response = requests.get(github_repo_url)
         response.raise_for_status()
         release_data = response.json()
-        tag_name = release_data['Version-413']
-        download_url = release_data['assets'][0]['https://github.com/RRechzEXE/NightLoad/releases/tag/Version-413']
+        tag_name = release_data['Version-414']
+        download_url = release_data['assets'][0]['https://github.com/RRechzEXE/NightLoad/releases/tag/Version-414']
         return tag_name, download_url
     except Exception as e:
         write_to_log(f"Failed to get latest release info: {str(e)}")
@@ -80,7 +80,7 @@ class DownloadManager(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('Project NightLoad: Open Soruce Project with Aria2')
+        self.setWindowTitle('Project NightLoad: Open Source Project with Aria2')
         self.setGeometry(100, 100, 800, 400)
         self.setFixedSize(800, 400)
 
@@ -157,12 +157,12 @@ class DownloadManager(QWidget):
         layout.addWidget(self.progress_bar)
 
         self.status_label = QLabel('', self)
-        self.status_label.setFont(QFont('Arial', 12))
+        self.status_label.setFont(QFont('Arial', 5))
         self.status_label.setAlignment(Qt.AlignRight)
         layout.addWidget(self.status_label)
 
-        self.text_label = QLabel('Know Bugs | v4.1.2\nThe Update button may not work because it is in BETA.', self)
-        self.text_label.setFont(QFont('Arial', 8))
+        self.text_label = QLabel('❤️ Thank you for choosing NightLoad ❤️\n#Updated | v4.1.3', self)
+        self.text_label.setFont(QFont('Canva Sans', 8))
         self.text_label.setAlignment(Qt.AlignRight | Qt.AlignBottom)
         layout.addWidget(self.text_label)
 
@@ -245,7 +245,7 @@ class DownloadManager(QWidget):
                 self.download_button.setStyleSheet("""
                     QPushButton {
                         background-color: #3498DB;
-                        color: #ECF0F1;
+                        color: #FFFFFF;
                         padding: 10px;
                         border-radius: 5px;
                         border: none;
@@ -254,57 +254,71 @@ class DownloadManager(QWidget):
                         background-color: #2980B9;
                     }
                 """)
+                self.progress_bar.setVisible(False)
+                self.monitor_timer.stop()
                 return
 
-            if line == "done":
-                self.progress_bar.setValue(100)
-                self.status_label.setText("Download completed successfully :)")
+            if "download complete" in line.lower():
+                self.status_label.setText("Download completed!")
                 self.download_button.setEnabled(True)
                 self.download_button.setText("Download")
                 self.download_button.setStyleSheet("""
                     QPushButton {
-                        background-color: #3498DB;
-                        color: #ECF0F1;
+                        background-color: #2ECC71;
+                        color: #FFFFFF;
                         padding: 10px;
                         border-radius: 5px;
                         border: none;
                     }
                     QPushButton:hover {
-                        background-color: #2980B9;
+                        background-color: #27AE60;
                     }
                 """)
+                self.progress_bar.setValue(100)
+                self.progress_bar.setVisible(False)
+                self.monitor_timer.stop()
                 return
 
-            percentage_match = re.search(r"(\d+(\.\d+)?)%", line)
-            if percentage_match:
-                percentage = float(percentage_match.group(1))
-                self.progress_bar.setValue(int(percentage))
-                self.download_status_label.setText(f'Download Status | {int(percentage)}%')
+            match = re.search(r'\[(\d+\.\d+)%\]', line)
+            if match:
+                progress = float(match.group(1))
+                self.progress_bar.setValue(int(progress))
+                self.download_status_label.setText(f'Download Status | {progress:.2f}%')
 
     def update_speed(self):
-        while self.process is not None and self.process.poll() is None:
-            current_bytes_sent = psutil.net_io_counters().bytes_recv
-            current_time = time.time()
-            elapsed_time = current_time - self.last_check_time
+        while True:
+            net_io_counters = psutil.net_io_counters()
+            bytes_sent = net_io_counters.bytes_sent
+            bytes_recv = net_io_counters.bytes_recv
 
-            if elapsed_time >= 1:
-                bytes_recv = current_bytes_sent - self.last_bytes_sent
-                download_speed = bytes_recv / elapsed_time / (1024 * 1024)
-                self.network_speed_label.setText(f"Network Speed | {download_speed:.2f} MB/s")
-                self.last_bytes_sent = current_bytes_sent
-                self.last_check_time = current_time
+            current_time = time.time()
+            time_diff = current_time - self.last_check_time
+
+            upload_speed = (bytes_sent - self.last_bytes_sent) / time_diff
+            download_speed = (bytes_recv - self.last_bytes_recv) / time_diff
+
+            upload_speed_mbps = upload_speed / (1024 * 1024)
+            download_speed_mbps = download_speed / (1024 * 1024)
+
+            self.network_speed_label.setText(f'Network Speed | {download_speed_mbps:.2f} MB/s')
+
+            self.last_bytes_sent = bytes_sent
+            self.last_bytes_recv = bytes_recv
+            self.last_check_time = current_time
 
             time.sleep(1)
 
     def show_theme_selector(self):
-        themes = ['Dark', 'Light']
-        theme, ok = QInputDialog.getItem(self, "Select Theme", "Choose your theme:", themes, 0, False)
+        themes = ["Dark", "Light", "Auto"]
+        selected_theme, ok = QInputDialog.getItem(self, "Select Theme", "Choose a theme:", themes, 0, False)
 
-        if ok and theme:
-            if theme == "Dark":
+        if ok and selected_theme:
+            if selected_theme == "Dark":
                 self.set_dark_theme()
-            else:
+            elif selected_theme == "Light":
                 self.set_light_theme()
+            elif selected_theme == "Auto":
+                self.set_auto_theme()
 
     def set_dark_theme(self):
         self.setStyleSheet("""
@@ -312,15 +326,31 @@ class DownloadManager(QWidget):
                 background-color: #2C3E50;
                 color: #ECF0F1;
             }
+            QLabel {
+                color: #ECF0F1;
+            }
+            QLineEdit {
+                background-color: #34495E;
+                color: #ECF0F1;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #7F8C8D;
+            }
             QPushButton {
                 background-color: #3498DB;
-                color: #ECF0F1;
+                color: #FFFFFF;
                 padding: 10px;
                 border-radius: 5px;
                 border: none;
             }
             QPushButton:hover {
                 background-color: #2980B9;
+            }
+            QProgressBar {
+                background-color: #7F8C8D;
+                color: #FFFFFF;
+                border: 1px solid #BDC3C7;
+                border-radius: 5px;
             }
         """)
 
@@ -330,9 +360,19 @@ class DownloadManager(QWidget):
                 background-color: #ECF0F1;
                 color: #2C3E50;
             }
+            QLabel {
+                color: #2C3E50;
+            }
+            QLineEdit {
+                background-color: #BDC3C7;
+                color: #2C3E50;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid #7F8C8D;
+            }
             QPushButton {
                 background-color: #3498DB;
-                color: #2C3E50;
+                color: #FFFFFF;
                 padding: 10px;
                 border-radius: 5px;
                 border: none;
@@ -340,69 +380,36 @@ class DownloadManager(QWidget):
             QPushButton:hover {
                 background-color: #2980B9;
             }
+            QProgressBar {
+                background-color: #BDC3C7;
+                color: #2C3E50;
+                border: 1px solid #7F8C8D;
+                border-radius: 5px;
+            }
         """)
 
-    def show_about_me(self):
-        QMessageBox.about(self, "About Me", "Project NightLoad: Open Soruce Project with Aria2\n\nApp: Project NightLoad\nVersion: v4.1.2 [Hotfix]\nBuild: PNL10092024-V4.1\nDeveloped by RRechzEXE && Rescci\n\nby WallsHunter Media")
-
-    def open_support_link(self):
-        url = "https://discord.gg/geDSnXCq"
-        QDesktopServices.openUrl(QUrl(url))
-
-    def open_wallpapers_link(self):
-        url = "https://t.me/WallsHunterHQ"
-        QDesktopServices.openUrl(QUrl(url))
+    def set_auto_theme(self):
+        current_hour = time.localtime().tm_hour
+        if 8 <= current_hour <= 19:
+            self.set_light_theme()
+        else:
+            self.set_dark_theme()
 
     def check_for_updates(self):
-        tag_name, download_url = get_latest_release_info()
-        if not tag_name or not download_url:
-            QMessageBox.critical(self, "Error", "Failed to check for updates.")
-            return
+        latest_version, download_url = get_latest_release_info()
+        if latest_version:
+            QMessageBox.information(self, "Update Available", f"Latest version: {latest_version}")
+        else:
+            QMessageBox.information(self, "No Updates", "You are using the latest version.")
 
-        version_tag = f"Version-{tag_name.replace('.', '')}"
-        local_filename = f"{version_tag}.zip"  # Assuming the release is a ZIP file
+    def show_about_me(self):
+        QMessageBox.information(self, "About App", "Project NightLoad: Open Source Project with Aria2\n\nApp: The Project NightLoad\nVersion: v4.1.3-Stable\nBuild: PNL29092024-V4.1-Offical\nDeveloped by @RRechzEXE & @Rescci\n\n*Present by WallsHunter Media")
 
-        reply = QMessageBox.question(self, "Update Available",
-                                     f"New version {tag_name} is available. Do you want to download it?",
-                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
-        
-        if reply == QMessageBox.Yes:
-            self.download_button.setEnabled(False)
-            self.download_button.setText("Downloading update...")
-            self.download_button.setStyleSheet("""
-                QPushButton {
-                    background-color: #7F8C8D;
-                    color: #BDC3C7;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: none;
-                }
-            """)
+    def open_support_link(self):
+        QDesktopServices.openUrl(QUrl("https://discord.gg/WXr4j6Cr"))
 
-            download_thread = threading.Thread(target=download_file, args=(download_url, local_filename))
-            download_thread.start()
-            download_thread.join()
-
-            QMessageBox.information(self, "Update", "Update downloaded successfully.")
-            self.download_button.setEnabled(True)
-            self.download_button.setText("Download")
-            self.download_button.setStyleSheet("""
-                QPushButton {
-                    background-color: #3498DB;
-                    color: #ECF0F1;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: none;
-                }
-                QPushButton:hover {
-                    background-color: #2980B9;
-                }
-            """)
-
-    def resizeEvent(self, event):
-        super().resizeEvent(event)
-        # Update the position of the text label to be in the bottom-right corner
-        self.text_label.move(self.width() - self.text_label.width() - 10, self.height() - self.text_label.height() - 10)
+    def open_wallpapers_link(self):
+        QDesktopServices.openUrl(QUrl("https://t.me/WallsHunterHQ"))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
