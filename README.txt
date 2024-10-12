@@ -1,40 +1,36 @@
 ## Project NightLoad: Open Source Project with Aria2
-NightLoad, Aria2 indirme yöneticisini kullanıcı dostu bir PyQt5 arayüzü ile sunan açık kaynaklı bir projedir. Terminal kullanmadan kolayca dosya indirmenizi, indirme hızını ve ilerlemeyi takip etmenizi sağlar. (English README coming soon!)
+NightLoad is an open source project that provides the Aria2 download manager with a user-friendly PyQt5 interface. It allows you to easily download files, track download speed and progress without using a terminal.
 
-## Özellikler
+## Features
 
-* Kullanıcı Dostu Arayüz: PyQt5 ile geliştirilmiş sezgisel ve modern bir arayüz.
-* Aria2 Entegrasyonu: Aria2'nin gücünden yararlanarak hızlı ve güvenilir indirmeler.
-* İndirme İzleme: İndirme hızı, ilerleme durumu ve tahmini bitiş süresi gibi bilgileri gerçek zamanlı olarak takip etme.
-* Tema Desteği: Açık ve koyu tema seçenekleri.
-* Güncelleme Kontrolü: Uygulamanın en son sürümünü kontrol etme ve güncelleme (beta).
-* Hata Kayıtları: İndirme hatalarının ayrıntılı bir kaydını tutma.
+* User Friendly Interface: An intuitive and modern interface developed with PyQt5.
+* Aria2 Integration: Fast and reliable downloads leveraging the power of Aria2.
+* Download Monitoring: Real-time tracking of information such as download speed, progress and estimated completion time.
+* Theme Support: Light and dark theme options.
+* Update Check: Check and update the latest version of the app (beta).
+* Logs: Keep a detailed log of download errors.
 
-## Gereksinimler
+## System Requirements
+* Python (For All OS)
 
-* Python 3.12
+## Installation Steps
+1. Download ProjectNightLoad_*********.zip.
+2. Extract the “.zip” file to the “C:\” directory.
+3. Enter the extracted folder “BasicDownload\src\”
+4. Double click on ProjectNightLoad_******.py and that's it.
 
-## Kurulum
+NOTE | Please report any bugs you encounter on our Discord Server!
 
-1. ProjectNightLoad_*********.zip'i indirin.
-2. ".zip" dosyasını "C:\" dizininne çıkarın.
-3. Çıkarılan "BasicDownload\src\" klasöürüne girin
-4. ProjectNightLoad_******.py dosyasına çift tıklayın ve işte bu kadar.
+1. Launch the application.
+2. Paste the URL of the file you want to download into the “Download URL” field.
+3. Optionally enter the number of download threads in the “Threads” field (default: 4).
+4. Click on the “Download” button.
+5. Track download progress, speed and status.
 
-** Lütfen karşılaştığınız hataları Discord Server'ımızda bizlere bildirin!
+## Making a Contribution
+We welcome your contributions! Please discuss your changes by opening an issue before submitting a pull request.
 
-1. Uygulamayı başlatın.
-2. İndirmek istediğiniz dosyanın URL'sini "Download URL" alanına yapıştırın.
-3. İsteğe bağlı olarak "Threads" alanına indirme iş parçacığı sayısını girin (varsayılan: 4).
-4. "Download" butonuna tıklayın.
-5. İndirme ilerlemesini, hızını ve durumunu takip edin.
-
-## Katkıda Bulunma
-
-Katkılarınızı memnuniyetle karşılıyoruz! Lütfen bir pull request göndermeden önce issue açarak değişikliklerinizi tartışın.
-
-## İletişim
-
+## Contact us
 Discord Server | https://discord.com/invite/geDSnXCq
 Telegram "Wallpapers" | https://t.me/WallsHunterHQ
 Telegram "Tech News" | https://t.me/customtechnology
