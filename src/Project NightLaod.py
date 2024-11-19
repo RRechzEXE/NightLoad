@@ -161,7 +161,7 @@ class DownloadManager(QWidget):
         self.status_label.setAlignment(Qt.AlignRight)
         layout.addWidget(self.status_label)
 
-        self.text_label = QLabel('❤️ Thank you for choosing NightLoad ❤️\n#Updated | v4.1.3', self)
+        self.text_label = QLabel('♥️ Thank you for using NightLoad ♥️\nProject NightLoad by Babel Software\n#Update | v4.1.4, self)
         self.text_label.setFont(QFont('Canva Sans', 8))
         self.text_label.setAlignment(Qt.AlignRight | Qt.AlignBottom)
         layout.addWidget(self.text_label)
@@ -403,7 +403,7 @@ class DownloadManager(QWidget):
             QMessageBox.information(self, "No Updates", "You are using the latest version.")
 
     def show_about_me(self):
-        QMessageBox.information(self, "About App", "Project NightLoad: Open Source Project with Aria2\n\nApp: The Project NightLoad\nVersion: v4.1.3-Stable\nBuild: PNL29092024-V4.1-Offical\nDeveloped by @RRechzEXE & @Rescci\n\n*Present by WallsHunter Media")
+        QMessageBox.information(self, "About App", "Project NightLoad: Open Source Project with Aria2\n\nApp: The Project NightLoad\nVersion: v4.1.4-Stable\nBuild: PNL29092024-V4.1-Offical\nDeveloped by @RRechzEXE & @Rescci\n\n*Present by Babel Software")
 
     def open_support_link(self):
         QDesktopServices.openUrl(QUrl("https://discord.gg/WXr4j6Cr"))
